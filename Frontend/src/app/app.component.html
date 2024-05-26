@@ -1,0 +1,20 @@
+<div class="container">
+  <table class="table">
+  <tr *ngFor="let post of POSTS | paginate: { itemsPerPage: tableSize, currentPage: page, totalItems: count }; let i = index">
+      <mat-card class="example-card">
+        <mat-card-header class="header">{{ post.name }}</mat-card-header>
+        <img mat-card-image [src]="post.image" alt="{{post.name}}" class="image">
+        <mat-card-content class="content">{{ post.description }}</mat-card-content>
+      </mat-card>
+  </tr>
+  </table>
+  <div>
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)" class="page">
+    </pagination-controls>
+  </div>
+</div>
+
+
